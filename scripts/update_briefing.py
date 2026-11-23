@@ -151,7 +151,7 @@ def main():
                     gb = g.get("gb", "")
                     cat = "고시" if gb == "N" else ("공고" if gb == "A" else gb)
                     add_item({
-                        "agency": "제주특별자치도",
+                        "agency": "제주도청",
                         "tag": get_tag(title),
                         "noticeNo": f"{g.get('gosiNo', '')} ({cat})",
                         "title": title,
@@ -159,7 +159,7 @@ def main():
                         "date": format_korean_date(dt, today_date),
                         "isoDate": (dt or today_date).strftime("%Y-%m-%d"),
                         "summary": f"{title} 관련 {cat}입니다. 세부 필지, 면적, 도면 등은 원문에서 확인하십시오.",
-                        "url": f"https://www.jeju.go.kr/news/news/law.htm?act=view&gb={gb}&no={g.get('no', '')}",
+                        "url": f"https://www.jeju.go.kr/news/news/law/jeju2.htm#{gb}_{g.get('no', '')}",
                     }, dt)
             if not page_has_valid:
                 break
@@ -206,7 +206,7 @@ def main():
                         else:
                             notice_no = f"도보 수록 (seq:{seq})"
                         add_item({
-                            "agency": "제주특별자치도",
+                            "agency": "제주도청",
                             "tag": get_tag(line, "도보"),
                             "noticeNo": notice_no,
                             "title": line,
@@ -241,6 +241,7 @@ def main():
                     title = clean_text(title_m.group(2))
                     if is_target_notice(title):
                         href = clean_text(title_m.group(1))
+                        detail_url = urllib.parse.urljoin("https://www.jejusi.go.kr/information/intro/notice.do", href)
                         add_item({
                             "agency": "제주시",
                             "tag": get_tag(title),
@@ -250,7 +251,7 @@ def main():
                             "date": format_korean_date(dt, today_date),
                             "isoDate": (dt or today_date).strftime("%Y-%m-%d"),
                             "summary": f"{title} 관련 고시·공고입니다. 세부 내용은 원문에서 확인하십시오.",
-                            "url": f"https://www.jejusi.go.kr{href}",
+                            "url": detail_url,
                         }, dt)
             if not page_has_valid:
                 break
@@ -290,6 +291,11 @@ def main():
                         continue
                     page_has_valid = True
                     if is_target_notice(title):
+                        detail_url = (
+                            "https://eminwon.seogwipo.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do"
+                            f"?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt"
+                            f"&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=N&not_ancmt_mgt_no={mgt_no}"
+                        )
                         add_item({
                             "agency": "서귀포시",
                             "tag": get_tag(title),
@@ -299,7 +305,7 @@ def main():
                             "date": format_korean_date(dt, today_date),
                             "isoDate": (dt or today_date).strftime("%Y-%m-%d"),
                             "summary": f"{title} 관련 고시·공고입니다. (서귀포시청 관리번호: {mgt_no})",
-                            "url": "https://www.seogwipo.go.kr/info/news/law.htm",
+                            "url": detail_url,
                         }, dt)
             if not page_has_valid:
                 break
