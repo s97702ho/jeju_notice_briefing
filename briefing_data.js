@@ -1,6 +1,7 @@
 window.JEJU_BRIEFING_DATA = {
   "2026-11-23": {
     "label": "2026. 11. 23. (조회 범위: 11. 20. ~ 11. 23.)",
+    "updatedAt": "2026. 11. 23. 10:28",
     "notices": [
       {
         "agency": "제주특별자치도",
