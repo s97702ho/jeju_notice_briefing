@@ -352,7 +352,7 @@
 
     <footer class="footer-note">
       <span><strong>선별 기준:</strong> 도시계획시설, 실시계획, 개발사업, 지구단위계획, 지형도면, 입지결정, 토지이용규제, 민간특례, 재개발·재건축</span>
-      <span><strong>자동 업데이트:</strong> 평일 오전 9시 ~ 오후 6시 매시간 자동 갱신</span>
+      <span><strong>자동 업데이트:</strong> 평일 오전 8시 30분 ~ 오후 6시 30분 30분마다 자동 갱신</span>
     </footer>
   </div>
 
@@ -411,7 +411,7 @@
     }
 
     function getSeogwipoMgtNo(item) {
-      const urlMatch = (item.url || "").match(/not_ancmt_mgt_no=(\d+)/);
+      const urlMatch = (item.url || "").match(/mgt_no=(\d+)/);
       if (urlMatch) return urlMatch[1];
       const sumMatch = (item.summary || "").match(/관리번호:\s*(\d+)/);
       return sumMatch ? sumMatch[1] : "";
