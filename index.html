@@ -193,6 +193,7 @@
     .badge-si { background: var(--jeju-si-bg); color: var(--jeju-si); }
     .badge-sgp { background: var(--seogwipo-bg); color: var(--seogwipo); }
     .badge-tag { background: #dcfce7; color: #166534; }
+    .badge-dobo { background: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
 
     .date {
       font-size: 0.78rem;
@@ -330,7 +331,7 @@
       <div class="topbar-actions">
         <select id="dateSelect" class="date-select" aria-label="브리핑 날짜 선택"></select>
         <a class="btn btn-amber" href="https://www.jeju.go.kr/news/online/list/2014.htm" target="_blank" rel="noopener">제주특별자치도보(도보)</a>
-        <a class="btn btn-ghost" href="https://www.jeju.go.kr/news/news/law.htm" target="_blank" rel="noopener">도청 고시·공고</a>
+        <a class="btn btn-ghost" href="https://www.jeju.go.kr/news/news/law/jeju2.htm" target="_blank" rel="noopener">도청 고시·공고</a>
       </div>
     </header>
 
@@ -394,23 +395,32 @@
       return (allData[selectedDate] && allData[selectedDate].archiveNotices) || [];
     }
 
+    function normalizeAgency(agency) {
+      return agency === "제주특별자치도" ? "제주도청" : agency;
+    }
+
     function badgeClass(agency) {
-      if (agency === "제주특별자치도") return "badge-do";
-      if (agency === "제주시") return "badge-si";
+      const name = normalizeAgency(agency);
+      if (name === "제주도청") return "badge-do";
+      if (name === "제주시") return "badge-si";
       return "badge-sgp";
+    }
+
+    function tagBadgeClass(tag) {
+      return (tag || "").includes("도보") ? "badge-dobo" : "badge-tag";
     }
 
     function renderTabs(baseList) {
       const counts = {
         "ALL": baseList.length,
-        "제주특별자치도": baseList.filter(i => i.agency === "제주특별자치도").length,
+        "제주도청": baseList.filter(i => normalizeAgency(i.agency) === "제주도청").length,
         "제주시": baseList.filter(i => i.agency === "제주시").length,
         "서귀포시": baseList.filter(i => i.agency === "서귀포시").length
       };
 
       const labels = [
         { key: "ALL", text: `전체 (${counts["ALL"]})` },
-        { key: "제주특별자치도", text: `제주특별자치도청 (${counts["제주특별자치도"]})` },
+        { key: "제주도청", text: `제주도청 (${counts["제주도청"]})` },
         { key: "제주시", text: `제주시청 (${counts["제주시"]})` },
         { key: "서귀포시", text: `서귀포시청 (${counts["서귀포시"]})` }
       ];
@@ -433,14 +443,15 @@
       const targetKey = selectedDate === "ALL_DATES" ? dateKeys[0] : selectedDate;
       const updatedAt = (allData[targetKey] && allData[targetKey].updatedAt) ? ` · 마지막 업데이트: ${allData[targetKey].updatedAt}` : "";
       document.getElementById("headerSummary").textContent =
-        `도청 ${counts["제주특별자치도"]}건 · 제주시 ${counts["제주시"]}건 · ${sgpText}${updatedAt}`;
+        `제주도청 ${counts["제주도청"]}건 · 제주시 ${counts["제주시"]}건 · ${sgpText}${updatedAt}`;
     }
 
     function filterList(list, q) {
       return list.filter(item => {
-        if (selectedAgency !== "ALL" && item.agency !== selectedAgency) return false;
+        const agencyName = normalizeAgency(item.agency);
+        if (selectedAgency !== "ALL" && agencyName !== selectedAgency) return false;
         if (q) {
-          const text = `${item.agency} ${item.tag} ${item.noticeNo} ${item.title} ${item.dept} ${item.summary}`.toLowerCase();
+          const text = `${agencyName} ${item.tag} ${item.noticeNo} ${item.title} ${item.dept} ${item.summary}`.toLowerCase();
           if (!text.includes(q)) return false;
         }
         return true;
@@ -486,8 +497,8 @@
           <tbody>
             ${filteredArchive.map(item => `
               <tr>
-                <td><span class="badge ${badgeClass(item.agency)}">${item.agency}</span></td>
-                <td><span class="badge badge-tag">${item.tag}</span></td>
+                <td><span class="badge ${badgeClass(item.agency)}">${normalizeAgency(item.agency)}</span></td>
+                <td><span class="badge ${tagBadgeClass(item.tag)}">${item.tag}</span></td>
                 <td style="color:var(--muted); font-size:0.8rem;">${item.noticeNo}</td>
                 <td style="font-weight:600;">${item.title}</td>
                 <td style="color:var(--muted); font-size:0.8rem;">${item.dept}</td>
@@ -519,8 +530,8 @@
             <div>
               <div class="card-top">
                 <div class="badges">
-                  <span class="badge ${badgeClass(item.agency)}">${item.agency}</span>
-                  <span class="badge badge-tag">${item.tag}</span>
+                  <span class="badge ${badgeClass(item.agency)}">${normalizeAgency(item.agency)}</span>
+                  <span class="badge ${tagBadgeClass(item.tag)}">${item.tag}</span>
                 </div>
                 <span class="date">${item.date}</span>
               </div>
