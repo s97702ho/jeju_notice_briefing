@@ -101,6 +101,7 @@
     .btn-ghost:hover { background: rgba(255,255,255,0.2); }
     .btn-primary { background: var(--primary); color: #ffffff; }
     .btn-primary:hover { background: #1e40af; }
+    .btn-sm { padding: 4px 10px; font-size: 0.78rem; }
 
     .toolbar {
       background: var(--surface);
@@ -143,7 +144,7 @@
       border: 1px solid var(--border);
       border-radius: 7px;
       font-size: 0.84rem;
-      width: 220px;
+      width: 240px;
       outline: none;
     }
     .search-input:focus { border-color: var(--primary); }
@@ -152,7 +153,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
       gap: 12px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
     .card {
@@ -229,6 +230,71 @@
       padding-top: 2px;
     }
 
+    /* 1개월 누적 아카이브 섹션 */
+    .archive-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 14px;
+      overflow: hidden;
+    }
+
+    .archive-header {
+      padding: 12px 16px;
+      background: #f8fafc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: #1e293b;
+      border-bottom: 1px solid transparent;
+    }
+
+    .archive-box.open .archive-header {
+      border-bottom-color: var(--border);
+    }
+
+    .archive-body {
+      display: none;
+      padding: 0;
+    }
+
+    .archive-box.open .archive-body {
+      display: block;
+    }
+
+    .archive-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.84rem;
+    }
+
+    .archive-table th,
+    .archive-table td {
+      padding: 9px 12px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .archive-table th {
+      background: #f8fafc;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.78rem;
+    }
+
+    .archive-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .archive-table tr:hover td {
+      background: #f8fafc;
+    }
+
     .footer-note {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -270,14 +336,22 @@
 
     <section class="toolbar">
       <div class="tabs" id="agencyTabs"></div>
-      <input type="search" id="searchInput" class="search-input" placeholder="키워드 검색..." />
+      <input type="search" id="searchInput" class="search-input" placeholder="키워드 검색 (민간특례, 재건축 등)..." />
     </section>
 
     <main id="grid" class="grid"></main>
 
+    <section id="archiveBox" class="archive-box">
+      <div class="archive-header" id="archiveToggle">
+        <span id="archiveTitle">최근 1개월 내 고시·공고 (4 ~ 30일 전)</span>
+        <span id="archiveArrow">펼쳐보기 ▼</span>
+      </div>
+      <div class="archive-body" id="archiveBody"></div>
+    </section>
+
     <footer class="footer-note">
-      <span><strong>선별 기준:</strong> 도시계획시설, 실시계획, 개발사업, 지구단위계획, 지형도면, 입지결정, 토지이용규제 (단순 점용·공사·공시송달 제외)</span>
-      <span><strong>고정 북마크용 페이지:</strong> 날짜가 추가되어도 이 주소에서 계속 확인하실 수 있습니다.</span>
+      <span><strong>선별 기준:</strong> 도시계획시설, 실시계획, 개발사업, 지구단위계획, 지형도면, 입지결정, 토지이용규제, 민간특례, 재개발·재건축</span>
+      <span><strong>자동 업데이트:</strong> 평일 오전 9시 ~ 오후 6시 매시간 자동 갱신</span>
     </footer>
   </div>
 
@@ -287,6 +361,7 @@
     const dateKeys = Object.keys(allData).sort().reverse();
     let selectedDate = dateKeys[0] || "";
     let selectedAgency = "ALL";
+    let archiveOpen = false;
 
     const dateSelect = document.getElementById("dateSelect");
 
@@ -309,6 +384,14 @@
         return merged;
       }
       return (allData[selectedDate] && allData[selectedDate].notices) || [];
+    }
+
+    function getArchiveNotices() {
+      if (selectedDate === "ALL_DATES") {
+        const latestKey = dateKeys[0];
+        return (latestKey && allData[latestKey] && allData[latestKey].archiveNotices) || [];
+      }
+      return (allData[selectedDate] && allData[selectedDate].archiveNotices) || [];
     }
 
     function badgeClass(agency) {
@@ -353,14 +436,8 @@
         `도청 ${counts["제주특별자치도"]}건 · 제주시 ${counts["제주시"]}건 · ${sgpText}${updatedAt}`;
     }
 
-    function render() {
-      const baseList = getCurrentNotices();
-      renderTabs(baseList);
-
-      const grid = document.getElementById("grid");
-      const q = document.getElementById("searchInput").value.trim().toLowerCase();
-
-      const filtered = baseList.filter(item => {
+    function filterList(list, q) {
+      return list.filter(item => {
         if (selectedAgency !== "ALL" && item.agency !== selectedAgency) return false;
         if (q) {
           const text = `${item.agency} ${item.tag} ${item.noticeNo} ${item.title} ${item.dept} ${item.summary}`.toLowerCase();
@@ -368,35 +445,103 @@
         }
         return true;
       });
+    }
 
-      if (filtered.length === 0) {
-        const msg = selectedAgency === "서귀포시"
-          ? "서귀포시청: 해당 기간 도시계획·개발 관련 신규 공고 없음"
-          : "조건에 해당하는 공고가 없습니다.";
-        grid.innerHTML = `<div class="empty-box">${msg}</div>`;
+    function renderArchive(q) {
+      const archiveBox = document.getElementById("archiveBox");
+      const archiveTitle = document.getElementById("archiveTitle");
+      const archiveArrow = document.getElementById("archiveArrow");
+      const archiveBody = document.getElementById("archiveBody");
+
+      const baseArchive = getArchiveNotices();
+      const filteredArchive = filterList(baseArchive, q);
+
+      archiveTitle.textContent = `최근 1개월 내 고시·공고 (4 ~ 30일 전 · ${filteredArchive.length}건)`;
+
+      if (q && filteredArchive.length > 0) {
+        archiveOpen = true;
+      }
+
+      archiveBox.classList.toggle("open", archiveOpen);
+      archiveArrow.textContent = archiveOpen ? "접기 ▲" : "펼쳐보기 ▼";
+
+      if (filteredArchive.length === 0) {
+        archiveBody.innerHTML = `<div style="padding:18px; text-align:center; color:var(--muted); font-size:0.85rem;">해당 기간(4 ~ 30일 전) 조건에 맞는 공고가 없습니다.</div>`;
         return;
       }
 
-      grid.innerHTML = filtered.map(item => `
-        <article class="card">
-          <div>
-            <div class="card-top">
-              <div class="badges">
-                <span class="badge ${badgeClass(item.agency)}">${item.agency}</span>
-                <span class="badge badge-tag">${item.tag}</span>
-              </div>
-              <span class="date">${item.date}</span>
-            </div>
-            <h2 class="title">${item.title}</h2>
-            <div class="meta">${item.noticeNo} · ${item.dept}</div>
-          </div>
-          <p class="summary">${item.summary}</p>
-          <div class="card-foot">
-            <a class="btn btn-primary" href="${item.url}" target="_blank" rel="noopener">원문 보기</a>
-          </div>
-        </article>
-      `).join("");
+      archiveBody.innerHTML = `
+        <table class="archive-table">
+          <thead>
+            <tr>
+              <th style="width:110px;">기관</th>
+              <th style="width:140px;">구분</th>
+              <th style="width:150px;">공고번호</th>
+              <th>제목</th>
+              <th style="width:130px;">담당부서</th>
+              <th style="width:95px;">게시일</th>
+              <th style="width:80px;">링크</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${filteredArchive.map(item => `
+              <tr>
+                <td><span class="badge ${badgeClass(item.agency)}">${item.agency}</span></td>
+                <td><span class="badge badge-tag">${item.tag}</span></td>
+                <td style="color:var(--muted); font-size:0.8rem;">${item.noticeNo}</td>
+                <td style="font-weight:600;">${item.title}</td>
+                <td style="color:var(--muted); font-size:0.8rem;">${item.dept}</td>
+                <td style="color:var(--muted); white-space:nowrap;">${item.date}</td>
+                <td><a class="btn btn-primary btn-sm" href="${item.url}" target="_blank" rel="noopener">원문</a></td>
+              </tr>
+            `).join("")}
+          </tbody>
+        </table>
+      `;
     }
+
+    function render() {
+      const baseList = getCurrentNotices();
+      renderTabs(baseList);
+
+      const grid = document.getElementById("grid");
+      const q = document.getElementById("searchInput").value.trim().toLowerCase();
+      const filtered = filterList(baseList, q);
+
+      if (filtered.length === 0) {
+        const msg = selectedAgency === "서귀포시"
+          ? "서귀포시청: 최근 3일간 도시계획·개발 관련 신규 공고 없음"
+          : "조건에 해당하는 최근 3일 공고가 없습니다.";
+        grid.innerHTML = `<div class="empty-box">${msg}</div>`;
+      } else {
+        grid.innerHTML = filtered.map(item => `
+          <article class="card">
+            <div>
+              <div class="card-top">
+                <div class="badges">
+                  <span class="badge ${badgeClass(item.agency)}">${item.agency}</span>
+                  <span class="badge badge-tag">${item.tag}</span>
+                </div>
+                <span class="date">${item.date}</span>
+              </div>
+              <h2 class="title">${item.title}</h2>
+              <div class="meta">${item.noticeNo} · ${item.dept}</div>
+            </div>
+            <p class="summary">${item.summary}</p>
+            <div class="card-foot">
+              <a class="btn btn-primary" href="${item.url}" target="_blank" rel="noopener">원문 보기</a>
+            </div>
+          </article>
+        `).join("");
+      }
+
+      renderArchive(q);
+    }
+
+    document.getElementById("archiveToggle").addEventListener("click", () => {
+      archiveOpen = !archiveOpen;
+      render();
+    });
 
     dateSelect.addEventListener("change", (e) => {
       selectedDate = e.target.value;
