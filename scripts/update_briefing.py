@@ -296,8 +296,10 @@ def main():
         f"{today_date.year}. {today_date.month:02d}. {today_date.day:02d}. "
         f"(조회 범위: {cutoff_date.month:02d}. {cutoff_date.day:02d}. ~ {today_date.month:02d}. {today_date.day:02d}.)"
     )
+    updated_at_str = now.strftime("%Y. %m. %d. %H:%M")
     existing_data[today_key] = {
         "label": range_label,
+        "updatedAt": updated_at_str,
         "notices": collected,
     }
 
