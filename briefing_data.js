@@ -1,8 +1,19 @@
 window.JEJU_BRIEFING_DATA = {
   "2026-11-23": {
     "label": "2026. 11. 23. (최근 3일: 11. 20. ~ 11. 23.)",
-    "updatedAt": "2026. 11. 23. 10:50",
+    "updatedAt": "2026. 11. 23. 18:57",
     "notices": [
+      {
+        "agency": "제주도청",
+        "tag": "재개발·재건축·정비",
+        "noticeNo": "2026-3593 (공고)",
+        "title": "입찰공고(서부처리구역 하수관로 정비사업(2단계-5공구) 건설폐기물 처리용역)",
+        "dept": "특별자치행정국 회계재산관리과",
+        "date": "2026. 11. 23.",
+        "isoDate": "2026-11-23",
+        "summary": "입찰공고(서부처리구역 하수관로 정비사업(2단계-5공구) 건설폐기물 처리용역) 관련 공고입니다. 세부 필지, 면적, 도면 등은 원문에서 확인하십시오.",
+        "url": "https://www.jeju.go.kr/news/news/law/jeju2.htm#A_68465"
+      },
       {
         "agency": "제주도청",
         "tag": "도시계획시설·실시계획",
@@ -259,15 +270,15 @@ window.JEJU_BRIEFING_DATA = {
         "url": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2040815"
       },
       {
-        "agency": "제주도청",
-        "tag": "재개발·재건축·정비",
-        "noticeNo": "2026-3424 (공고)",
-        "title": "입찰공고(서부처리구역 하수관로 정비사업(2단계-5공구) CCTV 조사 및 공기압시험 용역)",
-        "dept": "특별자치행정국 회계재산관리과",
-        "date": "2026. 11. 02.",
-        "isoDate": "2026-11-02",
-        "summary": "입찰공고(서부처리구역 하수관로 정비사업(2단계-5공구) CCTV 조사 및 공기압시험 용역) 관련 공고입니다. 세부 필지, 면적, 도면 등은 원문에서 확인하십시오.",
-        "url": "https://www.jeju.go.kr/news/news/law/jeju2.htm#A_68255"
+        "agency": "서귀포시",
+        "tag": "개발사업",
+        "noticeNo": "서귀포시 공고 제2026-2895호",
+        "title": "화순항 2단계 개발사업(어업지도선부두 축조공사) 환경영향평가 대상 사업중...",
+        "dept": "해양수산과",
+        "date": "2026. 11. 03.",
+        "isoDate": "2026-11-03",
+        "summary": "화순항 2단계 개발사업(어업지도선부두 축조공사) 환경영향평가 대상 사업중... 관련 고시·공고입니다. (서귀포시청 관리번호: 76108)",
+        "url": "https://eminwon.seogwipo.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=N&not_ancmt_mgt_no=76108"
       },
       {
         "agency": "제주도청",
