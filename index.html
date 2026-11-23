@@ -410,6 +410,52 @@
       return (tag || "").includes("도보") ? "badge-dobo" : "badge-tag";
     }
 
+    function getSeogwipoMgtNo(item) {
+      const urlMatch = (item.url || "").match(/not_ancmt_mgt_no=(\d+)/);
+      if (urlMatch) return urlMatch[1];
+      const sumMatch = (item.summary || "").match(/관리번호:\s*(\d+)/);
+      return sumMatch ? sumMatch[1] : "";
+    }
+
+    function openSeogwipoDetail(mgtNo) {
+      const form = document.createElement("form");
+      form.method = "POST";
+      form.action = "https://eminwon.seogwipo.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do";
+      form.target = "_blank";
+
+      const fields = {
+        jndinm: "OfrNotAncmtEJB",
+        context: "NTIS",
+        method: "selectOfrNotAncmt",
+        methodnm: "selectOfrNotAncmtRegst",
+        homepage_pbs_yn: "Y",
+        subCheck: "N",
+        not_ancmt_mgt_no: mgtNo
+      };
+
+      Object.entries(fields).forEach(([k, v]) => {
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = k;
+        input.value = v;
+        form.appendChild(input);
+      });
+
+      document.body.appendChild(form);
+      form.submit();
+      document.body.removeChild(form);
+    }
+
+    function renderLinkBtn(item, label, extraClass = "") {
+      if (normalizeAgency(item.agency) === "서귀포시") {
+        const mgtNo = getSeogwipoMgtNo(item);
+        if (mgtNo) {
+          return `<button type="button" class="btn btn-primary ${extraClass}" onclick="openSeogwipoDetail('${mgtNo}')">${label}</button>`;
+        }
+      }
+      return `<a class="btn btn-primary ${extraClass}" href="${item.url}" target="_blank" rel="noopener">${label}</a>`;
+    }
+
     function renderTabs(baseList) {
       const counts = {
         "ALL": baseList.length,
@@ -503,7 +549,7 @@
                 <td style="font-weight:600;">${item.title}</td>
                 <td style="color:var(--muted); font-size:0.8rem;">${item.dept}</td>
                 <td style="color:var(--muted); white-space:nowrap;">${item.date}</td>
-                <td><a class="btn btn-primary btn-sm" href="${item.url}" target="_blank" rel="noopener">원문</a></td>
+                <td>${renderLinkBtn(item, "원문", "btn-sm")}</td>
               </tr>
             `).join("")}
           </tbody>
@@ -540,7 +586,7 @@
             </div>
             <p class="summary">${item.summary}</p>
             <div class="card-foot">
-              <a class="btn btn-primary" href="${item.url}" target="_blank" rel="noopener">원문 보기</a>
+              ${renderLinkBtn(item, "원문 보기")}
             </div>
           </article>
         `).join("");
