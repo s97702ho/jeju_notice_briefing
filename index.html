@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>제주 도시·개발 핵심 고시·공고 브리핑</title>
+  <style>
+    :root {
+      --bg: #f1f5f9;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
+      --primary: #1d4ed8;
+      --jeju-do: #0f766e;
+      --jeju-do-bg: #f0fdfa;
+      --jeju-si: #1d4ed8;
+      --jeju-si-bg: #eff6ff;
+      --seogwipo: #7c3aed;
+      --seogwipo-bg: #f5f3ff;
+      --radius: 10px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Pretendard", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+      font-size: 14px;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 18px 18px 28px;
+    }
+
+    .topbar {
+      background: #0f172a;
+      color: #ffffff;
+      border-radius: var(--radius);
+      padding: 14px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .topbar-left h1 {
+      margin: 0;
+      font-size: 1.18rem;
+      font-weight: 700;
+    }
+
+    .topbar-meta {
+      font-size: 0.82rem;
+      color: #cbd5e1;
+      margin-top: 2px;
+    }
+
+    .topbar-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .date-select {
+      padding: 6px 10px;
+      border-radius: 7px;
+      border: 1px solid rgba(255,255,255,0.28);
+      background: #1e293b;
+      color: #ffffff;
+      font-size: 0.82rem;
+      font-weight: 600;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 12px;
+      border-radius: 7px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+
+    .btn-amber { background: #d97706; color: #ffffff; }
+    .btn-amber:hover { background: #b45309; }
+    .btn-ghost { background: rgba(255,255,255,0.12); color: #ffffff; border-color: rgba(255,255,255,0.2); }
+    .btn-ghost:hover { background: rgba(255,255,255,0.2); }
+    .btn-primary { background: var(--primary); color: #ffffff; }
+    .btn-primary:hover { background: #1e40af; }
+
+    .toolbar {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      margin-bottom: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tab-btn {
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .tab-btn.active {
+      background: #0f172a;
+      color: #ffffff;
+      border-color: #0f172a;
+    }
+
+    .search-input {
+      padding: 6px 11px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      font-size: 0.84rem;
+      width: 220px;
+      outline: none;
+    }
+    .search-input:focus { border-color: var(--primary); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 8px;
+      box-shadow: 0 1px 4px rgba(15, 23, 42, 0.04);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .badges {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 700;
+    }
+
+    .badge-do { background: var(--jeju-do-bg); color: var(--jeju-do); }
+    .badge-si { background: var(--jeju-si-bg); color: var(--jeju-si); }
+    .badge-sgp { background: var(--seogwipo-bg); color: var(--seogwipo); }
+    .badge-tag { background: #dcfce7; color: #166534; }
+
+    .date {
+      font-size: 0.78rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .title {
+      margin: 8px 0 0;
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.38;
+    }
+
+    .meta {
+      margin-top: 4px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .summary {
+      margin: 0;
+      font-size: 0.84rem;
+      color: #334155;
+      background: #f8fafc;
+      padding: 8px 10px;
+      border-radius: 6px;
+      border-left: 3px solid #cbd5e1;
+    }
+
+    .card-foot {
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 2px;
+    }
+
+    .footer-note {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .empty-box {
+      grid-column: 1 / -1;
+      background: var(--surface);
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <div class="topbar-left">
+        <h1>제주 도시·개발 핵심 고시·공고 브리핑</h1>
+        <div class="topbar-meta" id="headerSummary">불러오는 중...</div>
+      </div>
+      <div class="topbar-actions">
+        <select id="dateSelect" class="date-select" aria-label="브리핑 날짜 선택"></select>
+        <a class="btn btn-amber" href="https://www.jeju.go.kr/news/online/list/2014.htm" target="_blank" rel="noopener">제주특별자치도보(도보)</a>
+        <a class="btn btn-ghost" href="https://www.jeju.go.kr/news/news/law.htm" target="_blank" rel="noopener">도청 고시·공고</a>
+      </div>
+    </header>
+
+    <section class="toolbar">
+      <div class="tabs" id="agencyTabs"></div>
+      <input type="search" id="searchInput" class="search-input" placeholder="키워드 검색..." />
+    </section>
+
+    <main id="grid" class="grid"></main>
+
+    <footer class="footer-note">
+      <span><strong>선별 기준:</strong> 도시계획시설, 실시계획, 개발사업, 지구단위계획, 지형도면, 입지결정, 토지이용규제 (단순 점용·공사·공시송달 제외)</span>
+      <span><strong>고정 북마크용 페이지:</strong> 날짜가 추가되어도 이 주소에서 계속 확인하실 수 있습니다.</span>
+    </footer>
+  </div>
+
+  <script src="briefing_data.js"></script>
+  <script>
+    const allData = window.JEJU_BRIEFING_DATA || {};
+    const dateKeys = Object.keys(allData).sort().reverse();
+    let selectedDate = dateKeys[0] || "";
+    let selectedAgency = "ALL";
+
+    const dateSelect = document.getElementById("dateSelect");
+
+    function initDateOptions() {
+      const options = dateKeys.map((k, idx) => {
+        const suffix = idx === 0 ? " (최신)" : "";
+        return `<option value="${k}">${allData[k].label}${suffix}</option>`;
+      });
+      options.push(`<option value="ALL_DATES">전체 누적 보기 (${dateKeys.length}일치)</option>`);
+      dateSelect.innerHTML = options.join("");
+      dateSelect.value = selectedDate;
+    }
+
+    function getCurrentNotices() {
+      if (selectedDate === "ALL_DATES") {
+        const merged = [];
+        dateKeys.forEach(k => {
+          (allData[k].notices || []).forEach(n => merged.push(n));
+        });
+        return merged;
+      }
+      return (allData[selectedDate] && allData[selectedDate].notices) || [];
+    }
+
+    function badgeClass(agency) {
+      if (agency === "제주특별자치도") return "badge-do";
+      if (agency === "제주시") return "badge-si";
+      return "badge-sgp";
+    }
+
+    function renderTabs(baseList) {
+      const counts = {
+        "ALL": baseList.length,
+        "제주특별자치도": baseList.filter(i => i.agency === "제주특별자치도").length,
+        "제주시": baseList.filter(i => i.agency === "제주시").length,
+        "서귀포시": baseList.filter(i => i.agency === "서귀포시").length
+      };
+
+      const labels = [
+        { key: "ALL", text: `전체 (${counts["ALL"]})` },
+        { key: "제주특별자치도", text: `제주특별자치도청 (${counts["제주특별자치도"]})` },
+        { key: "제주시", text: `제주시청 (${counts["제주시"]})` },
+        { key: "서귀포시", text: `서귀포시청 (${counts["서귀포시"]})` }
+      ];
+
+      const tabsEl = document.getElementById("agencyTabs");
+      tabsEl.innerHTML = labels.map(l => `
+        <button class="tab-btn ${selectedAgency === l.key ? "active" : ""}" data-agency="${l.key}">
+          ${l.text}
+        </button>
+      `).join("");
+
+      tabsEl.querySelectorAll(".tab-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          selectedAgency = btn.dataset.agency;
+          render();
+        });
+      });
+
+      const sgpText = counts["서귀포시"] === 0 ? "서귀포시 신규 관련 공고 없음" : `서귀포시 ${counts["서귀포시"]}건`;
+      document.getElementById("headerSummary").textContent =
+        `도청 ${counts["제주특별자치도"]}건 · 제주시 ${counts["제주시"]}건 · ${sgpText}`;
+    }
+
+    function render() {
+      const baseList = getCurrentNotices();
+      renderTabs(baseList);
+
+      const grid = document.getElementById("grid");
+      const q = document.getElementById("searchInput").value.trim().toLowerCase();
+
+      const filtered = baseList.filter(item => {
+        if (selectedAgency !== "ALL" && item.agency !== selectedAgency) return false;
+        if (q) {
+          const text = `${item.agency} ${item.tag} ${item.noticeNo} ${item.title} ${item.dept} ${item.summary}`.toLowerCase();
+          if (!text.includes(q)) return false;
+        }
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        const msg = selectedAgency === "서귀포시"
+          ? "서귀포시청: 해당 기간 도시계획·개발 관련 신규 공고 없음"
+          : "조건에 해당하는 공고가 없습니다.";
+        grid.innerHTML = `<div class="empty-box">${msg}</div>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(item => `
+        <article class="card">
+          <div>
+            <div class="card-top">
+              <div class="badges">
+                <span class="badge ${badgeClass(item.agency)}">${item.agency}</span>
+                <span class="badge badge-tag">${item.tag}</span>
+              </div>
+              <span class="date">${item.date}</span>
+            </div>
+            <h2 class="title">${item.title}</h2>
+            <div class="meta">${item.noticeNo} · ${item.dept}</div>
+          </div>
+          <p class="summary">${item.summary}</p>
+          <div class="card-foot">
+            <a class="btn btn-primary" href="${item.url}" target="_blank" rel="noopener">원문 보기</a>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    dateSelect.addEventListener("change", (e) => {
+      selectedDate = e.target.value;
+      render();
+    });
+
+    document.getElementById("searchInput").addEventListener("input", render);
+
+    initDateOptions();
+    render();
+  </script>
+</body>
+</html>
