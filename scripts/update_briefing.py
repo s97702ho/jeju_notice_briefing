@@ -182,11 +182,11 @@ def main():
                     continue
                 if is_target_notice(line):
                     no_m = re.search(r"(제?\s*20\d{2}\s*[-년]\s*\d+\s*호?)", line)
-                 if no_m:
-                     cleaned_no = re.sub(r"\s+", "", no_m.group(1))
-                     notice_no = f"{cleaned_no} (도보)"
-                 else:
-                     notice_no = f"도보 수록 (seq:{seq})"
+                    if no_m:
+                        cleaned_no = re.sub(r"\s+", "", no_m.group(1))
+                        notice_no = f"{cleaned_no} (도보)"
+                    else:
+                        notice_no = f"도보 수록 (seq:{seq})"
                     add_item({
                         "agency": "제주특별자치도",
                         "tag": get_tag(line, "도보"),
