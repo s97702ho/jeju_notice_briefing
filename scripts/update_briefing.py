@@ -107,7 +107,7 @@ def get_tag(title: str, suffix: str = "") -> str:
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--days", type=int, default=3)
+    parser.add_argument("--days", type=int, default=7)
     parser.add_argument("--archive-days", type=int, default=30)
     args = parser.parse_args()
 
@@ -321,14 +321,16 @@ def main():
     data_js_path = os.path.join(root_dir, "briefing_data.js")
     existing_data = {}
     if os.path.exists(data_js_path):
-        with open(data_js_path, "r", encoding="utf-8") as f:
+        with open(data_js_path, "r", encoding="utf-8-sig") as f:
             raw_js = f.read()
-        json_part = re.sub(r"^\s*window\.JEJU_BRIEFING_DATA\s*=\s*", "", raw_js)
-        json_part = re.sub(r";\s*$", "", json_part)
-        try:
-            existing_data = json.loads(json_part)
-        except json.JSONDecodeError:
-            existing_data = {}
+        start_brace = raw_js.find("{")
+        end_brace = raw_js.rfind("}")
+        if start_brace != -1 and end_brace != -1 and end_brace > start_brace:
+            json_part = raw_js[start_brace : end_brace + 1]
+            try:
+                existing_data = json.loads(json_part)
+            except json.JSONDecodeError:
+                existing_data = {}
 
     range_label = (
         f"{today_date.year}. {today_date.month:02d}. {today_date.day:02d}. "
