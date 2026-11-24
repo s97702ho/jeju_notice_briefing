@@ -139,9 +139,9 @@ def main():
         elif effective_date >= cutoff_archive:
             archive_items.append(item)
 
-    # 1. 제주도청 고시·공고 (최대 8페이지 + 요청 간 0.4초 대기)
+    # 1. 제주도청 고시·공고 (최대 20페이지, 1페이지당 10건)
     try:
-        for page in range(1, 9):
+        for page in range(1, 21):
             raw = fetch_url(f"https://www.jeju.go.kr/tool/sido/api.jsp?act=index&page={page}")
             data = json.loads(raw)
             gosis = data.get("gosis", [])
@@ -170,7 +170,7 @@ def main():
                     }, dt)
             if not page_has_valid:
                 break
-            time.sleep(0.4)
+            time.sleep(0.25)
     except Exception as e:
         error_count += 1
         print(f"[WARN] 제주도청 고시·공고 조회 오류: {e}")
@@ -228,9 +228,9 @@ def main():
         error_count += 1
         print(f"[WARN] 제주특별자치도보 조회 오류: {e}")
 
-    # 3. 제주시청 (최대 8페이지 + 0.4초 대기)
+    # 3. 제주시청 (최대 20페이지, 1페이지당 10건)
     try:
-        for page in range(1, 9):
+        for page in range(1, 21):
             page_html = fetch_url(f"https://www.jejusi.go.kr/information/intro/notice.do?currentPageNo={page}")
             tbody_m = re.search(r"<tbody>(.*?)</tbody>", page_html, re.DOTALL)
             if not tbody_m:
@@ -264,7 +264,7 @@ def main():
                         }, dt)
             if not page_has_valid:
                 break
-            time.sleep(0.4)
+            time.sleep(0.25)
     except Exception as e:
         error_count += 1
         print(f"[WARN] 제주시청 조회 오류: {e}")
@@ -320,7 +320,7 @@ def main():
                         }, dt)
             if not page_has_valid:
                 break
-            time.sleep(0.4)
+            time.sleep(0.25)
     except Exception as e:
         error_count += 1
         print(f"[WARN] 서귀포시청 조회 오류: {e}")
