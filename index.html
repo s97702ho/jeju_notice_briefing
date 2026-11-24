@@ -330,6 +330,7 @@
       </div>
       <div class="topbar-actions">
         <select id="dateSelect" class="date-select" aria-label="브리핑 날짜 선택"></select>
+        <button type="button" id="forceRefreshBtn" class="btn btn-ghost" title="캐시를 무시하고 최신 데이터를 다시 불러옵니다">새로고침 ↻</button>
         <a class="btn btn-amber" href="https://www.jeju.go.kr/news/online/list/2014.htm" target="_blank" rel="noopener">제주특별자치도보(도보)</a>
         <a class="btn btn-ghost" href="https://www.jeju.go.kr/news/news/law/jeju2.htm" target="_blank" rel="noopener">도청 고시·공고</a>
       </div>
@@ -356,15 +357,48 @@
     </footer>
   </div>
 
-  <script src="briefing_data.js"></script>
   <script>
-    const allData = window.JEJU_BRIEFING_DATA || {};
-    const dateKeys = Object.keys(allData).sort().reverse();
-    let selectedDate = dateKeys[0] || "";
+    let allData = {};
+    let dateKeys = [];
+    let selectedDate = "";
     let selectedAgency = "ALL";
     let archiveOpen = false;
 
     const dateSelect = document.getElementById("dateSelect");
+    const forceRefreshBtn = document.getElementById("forceRefreshBtn");
+
+    function loadBriefingData(isManual = false) {
+      if (isManual) {
+        forceRefreshBtn.textContent = "불러오는 중...";
+        forceRefreshBtn.disabled = true;
+      }
+      const oldScript = document.getElementById("briefingDataScript");
+      if (oldScript) oldScript.remove();
+
+      const script = document.createElement("script");
+      script.id = "briefingDataScript";
+      script.src = `briefing_data.js?t=${Date.now()}`;
+      script.onload = () => {
+        allData = window.JEJU_BRIEFING_DATA || {};
+        dateKeys = Object.keys(allData).sort().reverse();
+        if (!selectedDate || !allData[selectedDate] || isManual) {
+          selectedDate = dateKeys[0] || "";
+        }
+        initDateOptions();
+        render();
+        if (isManual) {
+          forceRefreshBtn.textContent = "새로고침 ↻";
+          forceRefreshBtn.disabled = false;
+        }
+      };
+      script.onerror = () => {
+        if (isManual) {
+          forceRefreshBtn.textContent = "새로고침 ↻";
+          forceRefreshBtn.disabled = false;
+        }
+      };
+      document.body.appendChild(script);
+    }
 
     function initDateOptions() {
       const options = dateKeys.map((k, idx) => {
@@ -606,9 +640,9 @@
     });
 
     document.getElementById("searchInput").addEventListener("input", render);
+    forceRefreshBtn.addEventListener("click", () => loadBriefingData(true));
 
-    initDateOptions();
-    render();
+    loadBriefingData(false);
   </script>
 </body>
 </html>
