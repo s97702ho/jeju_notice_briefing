@@ -21,7 +21,12 @@ UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like 
 
 
 def fetch_url(url: str, data: dict | None = None, referer: str | None = None) -> str:
-    cmd = ["curl", "-4", "-L", "-s", "-m", "20", "-A", UA]
+    cmd = [
+        "curl", "-4", "--http1.1", "-L", "-s", "-m", "20",
+        "-A", UA,
+        "-H", "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,application/json;q=0.8,*/*;q=0.7",
+        "-H", "Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
+    ]
     if referer:
         cmd.extend(["-e", referer])
     if data:
@@ -126,7 +131,7 @@ def main():
     recent_items = []
     archive_items = []
     seen_keys = set()
-    error_count = 0
+    failed_agencies = set()
 
     def add_item(item: dict, item_date):
         key = f"{item['agency']}|{item['noticeNo']}|{item['title']}"
@@ -172,7 +177,7 @@ def main():
                 break
             time.sleep(0.25)
     except Exception as e:
-        error_count += 1
+        failed_agencies.add("제주도청")
         print(f"[WARN] 제주도청 고시·공고 조회 오류: {e}")
 
     # 2. 제주특별자치도보 (도보)
@@ -225,7 +230,7 @@ def main():
                         "url": detail_url,
                     }, post_dt)
     except Exception as e:
-        error_count += 1
+        failed_agencies.add("제주도청")
         print(f"[WARN] 제주특별자치도보 조회 오류: {e}")
 
     # 3. 제주시청 (최대 20페이지, 1페이지당 10건)
@@ -266,7 +271,7 @@ def main():
                 break
             time.sleep(0.25)
     except Exception as e:
-        error_count += 1
+        failed_agencies.add("제주시")
         print(f"[WARN] 제주시청 조회 오류: {e}")
 
     # 4. 서귀포시청 (최대 3페이지, 50건씩)
@@ -322,12 +327,8 @@ def main():
                 break
             time.sleep(0.25)
     except Exception as e:
-        error_count += 1
+        failed_agencies.add("서귀포시")
         print(f"[WARN] 서귀포시청 조회 오류: {e}")
-
-    # 최신순 정렬
-    recent_items.sort(key=lambda x: x.get("isoDate", ""), reverse=True)
-    archive_items.sort(key=lambda x: x.get("isoDate", ""), reverse=True)
 
     # 기존 briefing_data.js 읽기 및 병합
     root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -345,10 +346,28 @@ def main():
             except json.JSONDecodeError:
                 existing_data = {}
 
-    # 3개 이상 기관에서 오류 발생 시 기존 오늘 데이터 보존
-    if error_count >= 3 and today_key in existing_data and len(existing_data[today_key].get("notices", [])) > len(recent_items):
-        print(f"[WARN] 다수 기관 조회 오류({error_count}건)로 기존 {today_key} 데이터를 유지합니다.")
-        return
+    # 조회 실패한 기관은 직전 날짜 데이터에서 해당 기관 항목을 승계하여 공백 방지
+    if failed_agencies and existing_data:
+        for prev_key in sorted(existing_data.keys(), reverse=True):
+            prev_entry = existing_data.get(prev_key, {})
+            prev_all = list(prev_entry.get("notices", [])) + list(prev_entry.get("archiveNotices", []))
+            restored = 0
+            for p_item in prev_all:
+                p_agency = "제주도청" if p_item.get("agency") == "제주특별자치도" else p_item.get("agency")
+                if p_agency in failed_agencies:
+                    p_dt = parse_date(p_item.get("isoDate") or p_item.get("date", ""))
+                    if p_dt and p_dt >= cutoff_archive:
+                        p_copy = dict(p_item)
+                        p_copy["agency"] = p_agency
+                        add_item(p_copy, p_dt)
+                        restored += 1
+            if restored > 0:
+                print(f"[INFO] 오류 기관({', '.join(sorted(failed_agencies))})은 {prev_key} 데이터 {restored}건을 승계했습니다.")
+                break
+
+    # 최신순 정렬
+    recent_items.sort(key=lambda x: x.get("isoDate", ""), reverse=True)
+    archive_items.sort(key=lambda x: x.get("isoDate", ""), reverse=True)
 
     range_label = (
         f"{today_date.year}. {today_date.month:02d}. {today_date.day:02d}. "
@@ -367,7 +386,7 @@ def main():
         json.dump(existing_data, f, ensure_ascii=False, indent=2)
         f.write(";\n")
 
-    print(f"[OK] {today_key} 업데이트 완료: 최근 {args.days}일 {len(recent_items)}건, 1개월 누적 {len(archive_items)}건 저장 (오류 {error_count}건)")
+    print(f"[OK] {today_key} 업데이트 완료: 최근 {args.days}일 {len(recent_items)}건, 1개월 누적 {len(archive_items)}건 저장 (실패 기관: {len(failed_agencies)}개)")
 
 
 if __name__ == "__main__":
