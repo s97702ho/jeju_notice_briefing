@@ -547,7 +547,7 @@
       const baseArchive = getArchiveNotices();
       const filteredArchive = filterList(baseArchive, q);
 
-      archiveTitle.textContent = `최근 1개월 내 고시·공고 (4 ~ 30일 전 · ${filteredArchive.length}건)`;
+      archiveTitle.textContent = `최근 1개월 내 고시·공고 (8 ~ 30일 전 · ${filteredArchive.length}건)`;
 
       if (q && filteredArchive.length > 0) {
         archiveOpen = true;
@@ -557,7 +557,7 @@
       archiveArrow.textContent = archiveOpen ? "접기 ▲" : "펼쳐보기 ▼";
 
       if (filteredArchive.length === 0) {
-        archiveBody.innerHTML = `<div style="padding:18px; text-align:center; color:var(--muted); font-size:0.85rem;">해당 기간(4 ~ 30일 전) 조건에 맞는 공고가 없습니다.</div>`;
+        archiveBody.innerHTML = `<div style="padding:18px; text-align:center; color:var(--muted); font-size:0.85rem;">해당 기간(8 ~ 30일 전) 조건에 맞는 공고가 없습니다.</div>`;
         return;
       }
 
@@ -601,8 +601,8 @@
 
       if (filtered.length === 0) {
         const msg = selectedAgency === "서귀포시"
-          ? "서귀포시청: 최근 3일간 도시계획·개발 관련 신규 공고 없음"
-          : "조건에 해당하는 최근 3일 공고가 없습니다.";
+          ? "서귀포시청: 최근 7일간 도시계획·개발 관련 신규 공고 없음"
+          : "조건에 해당하는 최근 7일 공고가 없습니다.";
         grid.innerHTML = `<div class="empty-box">${msg}</div>`;
       } else {
         grid.innerHTML = filtered.map(item => `
