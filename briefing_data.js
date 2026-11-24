@@ -438,7 +438,7 @@ window.JEJU_BRIEFING_DATA = {
   },
   "2026-11-24": {
     "label": "2026. 11. 24. (최근 7일: 11. 17. ~ 11. 24.)",
-    "updatedAt": "2026. 11. 24. 15:24",
+    "updatedAt": "2026. 11. 24. 15:35",
     "notices": [
       {
         "agency": "서귀포시",
@@ -463,6 +463,40 @@ window.JEJU_BRIEFING_DATA = {
         "url": "https://eminwon.seogwipo.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=N&not_ancmt_mgt_no=76261"
       }
     ],
-    "archiveNotices": []
+    "archiveNotices": [
+      {
+        "agency": "서귀포시",
+        "tag": "도시계획시설·실시계획",
+        "noticeNo": "서귀포시 고시 제2026-291호",
+        "title": "도시관리계획(도시계획시설: 도로·체육시설) 결정(폐지) 및 지형도면 고시",
+        "dept": "도시과",
+        "date": "2026. 11. 13.",
+        "isoDate": "2026-11-13",
+        "summary": "도시관리계획(도시계획시설: 도로·체육시설) 결정(폐지) 및 지형도면 고시 관련 고시·공고입니다. (서귀포시청 관리번호: 76141)",
+        "url": "https://eminwon.seogwipo.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=N&not_ancmt_mgt_no=76141"
+      },
+      {
+        "agency": "서귀포시",
+        "tag": "도시계획시설·실시계획",
+        "noticeNo": "서귀포시 공고 제2026-2949호",
+        "title": "2027년 지적재조사사업 실시계획 공람 공고",
+        "dept": "종합민원실",
+        "date": "2026. 11. 12.",
+        "isoDate": "2026-11-12",
+        "summary": "2027년 지적재조사사업 실시계획 공람 공고 관련 고시·공고입니다. (서귀포시청 관리번호: 76208)",
+        "url": "https://eminwon.seogwipo.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=N&not_ancmt_mgt_no=76208"
+      },
+      {
+        "agency": "서귀포시",
+        "tag": "도시계획시설·실시계획",
+        "noticeNo": "서귀포시 공고 제2026-2940호",
+        "title": "제주평화대공원 기반시설(배수개선) 조성사업 실시계획 작성 열람공고",
+        "dept": "건설과",
+        "date": "2026. 11. 12.",
+        "isoDate": "2026-11-12",
+        "summary": "제주평화대공원 기반시설(배수개선) 조성사업 실시계획 작성 열람공고 관련 고시·공고입니다. (서귀포시청 관리번호: 76189)",
+        "url": "https://eminwon.seogwipo.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=N&not_ancmt_mgt_no=76189"
+      }
+    ]
   }
 };
