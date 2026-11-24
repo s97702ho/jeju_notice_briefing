@@ -2,10 +2,10 @@ name: Update Jeju Notice Briefing
 
 on:
   schedule:
-    # 평일 오전 8시 30분 (KST = 전일 23:30 UTC) 자동 실행
-    - cron: '30 23 * * 0-4'
-    # 평일 오전 9시 00분 ~ 오후 6시 30분 매 30분마다 (KST = 00:00~09:30 UTC) 자동 실행
-    - cron: '0,30 0-9 * * 1-5'
+    # 평일 오전 8시 37분 (KST = 전일 23:37 UTC) - 정시 트래픽 회피
+    - cron: '37 23 * * 0-4'
+    # 평일 오전 9시 12분 ~ 오후 6시 42분 30분마다 (KST = 00:12~09:42 UTC)
+    - cron: '12,42 0-9 * * 1-5'
   workflow_dispatch:
 
 permissions:
