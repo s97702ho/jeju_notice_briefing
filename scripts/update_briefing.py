@@ -237,8 +237,13 @@ def main():
     try:
         for page in range(1, 21):
             page_html = fetch_url(f"https://www.jejusi.go.kr/information/intro/notice.do?currentPageNo={page}")
-            tbody_m = re.search(r"<tbody>(.*?)</tbody>", page_html, re.DOTALL)
+            tbody_m = re.search(r"<tbody>(.*?)</tbody>", page_html, re.DOTALL | re.IGNORECASE)
             if not tbody_m:
+                title_tag = re.search(r"<title>(.*?)</title>", page_html, re.DOTALL | re.IGNORECASE)
+                page_title = clean_text(title_tag.group(1)) if title_tag else "제목없음"
+                print(f"[WARN] 제주시청 {page}페이지 <tbody> 미발견 (응답길이: {len(page_html)}, 페이지제목: {page_title})")
+                if page == 1:
+                    failed_agencies.add("제주시")
                 break
             page_has_valid = False
             for row_m in re.finditer(r"<tr>(.*?)</tr>", tbody_m.group(1), re.DOTALL):
