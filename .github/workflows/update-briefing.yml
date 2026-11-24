@@ -24,7 +24,7 @@ jobs:
           python-version: '3.11'
 
       - name: Fetch latest notices and Do-bo
-        run: python scripts/update_briefing.py --days 3
+        run: python scripts/update_briefing.py --days 7
 
       - name: Commit and push updated data
         run: |
