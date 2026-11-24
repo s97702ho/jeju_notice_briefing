@@ -22,10 +22,11 @@ UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like 
 
 def fetch_url(url: str, data: dict | None = None, referer: str | None = None) -> str:
     cmd = [
-        "curl", "-4", "--http1.1", "-L", "-s", "-m", "20",
+        "curl", "-4", "--http1.1", "--compressed", "-L", "-s", "-m", "20",
         "-A", UA,
         "-H", "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,application/json;q=0.8,*/*;q=0.7",
         "-H", "Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
+        "-H", "Upgrade-Insecure-Requests: 1",
     ]
     if referer:
         cmd.extend(["-e", referer])
@@ -236,7 +237,10 @@ def main():
     # 3. 제주시청 (최대 20페이지, 1페이지당 10건)
     try:
         for page in range(1, 21):
-            page_html = fetch_url(f"https://www.jejusi.go.kr/information/intro/notice.do?currentPageNo={page}")
+            page_html = fetch_url(
+                f"https://www.jejusi.go.kr/information/intro/notice.do?currentPageNo={page}",
+                referer="https://www.jejusi.go.kr/information/intro/notice.do",
+            )
             tbody_m = re.search(r"<tbody>(.*?)</tbody>", page_html, re.DOTALL | re.IGNORECASE)
             if not tbody_m:
                 print(f"[WARN] 제주시청 {page}페이지 <tbody> 미발견 (응답길이: {len(page_html)}, 내용: {repr(page_html[:400])})")
