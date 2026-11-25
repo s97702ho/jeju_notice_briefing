@@ -1,6 +1,7 @@
 module.exports = async function handler(req, res) {
   const page = req.query.page || "1";
   const targetUrl = `https://www.jejusi.go.kr/information/intro/notice.do?currentPageNo=${encodeURIComponent(page)}`;
+
   try {
     const response = await fetch(targetUrl, {
       method: "GET",
@@ -11,6 +12,7 @@ module.exports = async function handler(req, res) {
         "Referer": "https://www.jejusi.go.kr/information/intro/notice.do"
       }
     });
+
     const html = await response.text();
     res.setHeader("Content-Type", "text/html; charset=utf-8");
     res.status(response.status).send(html);
