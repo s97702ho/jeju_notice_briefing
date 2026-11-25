@@ -32,9 +32,9 @@
     }
 
     .container {
-      max-width: 1180px;
+      max-width: 1380px;
       margin: 0 auto;
-      padding: 18px 18px 28px;
+      padding: 16px 20px 30px;
     }
 
     .topbar {
@@ -52,7 +52,7 @@
 
     .topbar-left h1 {
       margin: 0;
-      font-size: 1.18rem;
+      font-size: 1.16rem;
       font-weight: 700;
     }
 
@@ -101,7 +101,9 @@
     .btn-ghost:hover { background: rgba(255,255,255,0.2); }
     .btn-primary { background: var(--primary); color: #ffffff; }
     .btn-primary:hover { background: #1e40af; }
-    .btn-sm { padding: 4px 10px; font-size: 0.78rem; }
+    .btn-dobo { background: #d97706; color: #ffffff; }
+    .btn-dobo:hover { background: #b45309; }
+    .btn-sm { padding: 4px 9px; font-size: 0.77rem; }
 
     .toolbar {
       background: var(--surface);
@@ -139,6 +141,35 @@
       border-color: #0f172a;
     }
 
+    .toolbar-right {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .view-toggle {
+      display: inline-flex;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      overflow: hidden;
+    }
+
+    .view-btn {
+      padding: 5px 10px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border: none;
+      background: #f8fafc;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .view-btn.active {
+      background: #1e293b;
+      color: #ffffff;
+    }
+
     .search-input {
       padding: 6px 11px;
       border: 1px solid var(--border);
@@ -149,11 +180,82 @@
     }
     .search-input:focus { border-color: var(--primary); }
 
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .badge-do { background: var(--jeju-do-bg); color: var(--jeju-do); }
+    .badge-si { background: var(--jeju-si-bg); color: var(--jeju-si); }
+    .badge-sgp { background: var(--seogwipo-bg); color: var(--seogwipo); }
+    .badge-tag { background: #dcfce7; color: #166534; }
+    .badge-src-gosi { background: #e0f2fe; color: #0369a1; }
+    .badge-src-dobo { background: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
+    .badge-src-both { background: #ede9fe; color: #6d28d9; border: 1px solid #ddd6fe; }
+
+    /* 가로형 리스트 테이블 */
+    .table-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow-x: auto;
+      margin-bottom: 14px;
+      box-shadow: 0 1px 4px rgba(15, 23, 42, 0.04);
+    }
+
+    .notice-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    .notice-table th,
+    .notice-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .notice-table th {
+      background: #f8fafc;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.78rem;
+      white-space: nowrap;
+    }
+
+    .notice-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .notice-table tbody tr:hover td {
+      background: #f8fafc;
+    }
+
+    .title-cell {
+      font-weight: 600;
+      color: #0f172a;
+      min-width: 300px;
+    }
+
+    .link-group {
+      display: inline-flex;
+      gap: 5px;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    /* 카드형 옵션 */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
       gap: 12px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .card {
@@ -177,23 +279,10 @@
 
     .badges {
       display: flex;
-      gap: 6px;
+      gap: 5px;
       align-items: center;
       flex-wrap: wrap;
     }
-
-    .badge {
-      padding: 2px 8px;
-      border-radius: 999px;
-      font-size: 0.74rem;
-      font-weight: 700;
-    }
-
-    .badge-do { background: var(--jeju-do-bg); color: var(--jeju-do); }
-    .badge-si { background: var(--jeju-si-bg); color: var(--jeju-si); }
-    .badge-sgp { background: var(--seogwipo-bg); color: var(--seogwipo); }
-    .badge-tag { background: #dcfce7; color: #166534; }
-    .badge-dobo { background: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
 
     .date {
       font-size: 0.78rem;
@@ -203,7 +292,7 @@
 
     .title {
       margin: 8px 0 0;
-      font-size: 0.98rem;
+      font-size: 0.96rem;
       font-weight: 700;
       color: #0f172a;
       line-height: 1.38;
@@ -215,20 +304,11 @@
       color: var(--muted);
     }
 
-    .summary {
-      margin: 0;
-      font-size: 0.84rem;
-      color: #334155;
-      background: #f8fafc;
-      padding: 8px 10px;
-      border-radius: 6px;
-      border-left: 3px solid #cbd5e1;
-    }
-
     .card-foot {
       display: flex;
       justify-content: flex-end;
-      padding-top: 2px;
+      gap: 6px;
+      padding-top: 4px;
     }
 
     /* 1개월 누적 아카이브 섹션 */
@@ -241,7 +321,7 @@
     }
 
     .archive-header {
-      padding: 12px 16px;
+      padding: 11px 16px;
       background: #f8fafc;
       display: flex;
       justify-content: space-between;
@@ -249,7 +329,7 @@
       cursor: pointer;
       user-select: none;
       font-weight: 700;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       color: #1e293b;
       border-bottom: 1px solid transparent;
     }
@@ -260,40 +340,11 @@
 
     .archive-body {
       display: none;
-      padding: 0;
+      overflow-x: auto;
     }
 
     .archive-box.open .archive-body {
       display: block;
-    }
-
-    .archive-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.84rem;
-    }
-
-    .archive-table th,
-    .archive-table td {
-      padding: 9px 12px;
-      border-bottom: 1px solid var(--border);
-      text-align: left;
-      vertical-align: middle;
-    }
-
-    .archive-table th {
-      background: #f8fafc;
-      color: var(--muted);
-      font-weight: 600;
-      font-size: 0.78rem;
-    }
-
-    .archive-table tr:last-child td {
-      border-bottom: none;
-    }
-
-    .archive-table tr:hover td {
-      background: #f8fafc;
     }
 
     .footer-note {
@@ -310,7 +361,6 @@
     }
 
     .empty-box {
-      grid-column: 1 / -1;
       background: var(--surface);
       border: 1px dashed var(--border);
       border-radius: var(--radius);
@@ -318,6 +368,7 @@
       text-align: center;
       color: var(--muted);
       font-size: 0.9rem;
+      margin-bottom: 14px;
     }
   </style>
 </head>
@@ -338,14 +389,20 @@
 
     <section class="toolbar">
       <div class="tabs" id="agencyTabs"></div>
-      <input type="search" id="searchInput" class="search-input" placeholder="키워드 검색 (민간특례, 재건축 등)..." />
+      <div class="toolbar-right">
+        <div class="view-toggle">
+          <button type="button" class="view-btn active" id="viewListBtn">리스트형</button>
+          <button type="button" class="view-btn" id="viewCardBtn">카드형</button>
+        </div>
+        <input type="search" id="searchInput" class="search-input" placeholder="키워드 검색 (민간특례, 재건축 등)..." />
+      </div>
     </section>
 
-    <main id="grid" class="grid"></main>
+    <main id="recentContainer"></main>
 
     <section id="archiveBox" class="archive-box">
       <div class="archive-header" id="archiveToggle">
-        <span id="archiveTitle">최근 1개월 내 고시·공고 (4 ~ 30일 전)</span>
+        <span id="archiveTitle">최근 1개월 내 고시·공고 (8 ~ 30일 전)</span>
         <span id="archiveArrow">펼쳐보기 ▼</span>
       </div>
       <div class="archive-body" id="archiveBody"></div>
@@ -362,6 +419,7 @@
     let dateKeys = [];
     let selectedDate = "";
     let selectedAgency = "ALL";
+    let viewMode = "list";
     let archiveOpen = false;
 
     const dateSelect = document.getElementById("dateSelect");
@@ -440,8 +498,18 @@
       return "badge-sgp";
     }
 
-    function tagBadgeClass(tag) {
-      return (tag || "").includes("도보") ? "badge-dobo" : "badge-tag";
+    function getSourceInfo(item) {
+      if (item.source) {
+        if (item.source === "고시·도보") return { label: "고시·도보", cls: "badge-src-both" };
+        if (item.source === "도보") return { label: "도보", cls: "badge-src-dobo" };
+        return { label: "고시·공고", cls: "badge-src-gosi" };
+      }
+      if ((item.tag || "").includes("도보")) return { label: "도보", cls: "badge-src-dobo" };
+      return { label: "고시·공고", cls: "badge-src-gosi" };
+    }
+
+    function cleanTagText(tag) {
+      return (tag || "").replace(/\s*\(도보\)\s*/g, "").trim();
     }
 
     function getSeogwipoMgtNo(item) {
@@ -480,14 +548,31 @@
       document.body.removeChild(form);
     }
 
-    function renderLinkBtn(item, label, extraClass = "") {
-      if (normalizeAgency(item.agency) === "서귀포시") {
-        const mgtNo = getSeogwipoMgtNo(item);
-        if (mgtNo) {
-          return `<button type="button" class="btn btn-primary ${extraClass}" onclick="openSeogwipoDetail('${mgtNo}')">${label}</button>`;
+    function renderActionButtons(item, compact = true) {
+      const src = getSourceInfo(item);
+      const sz = compact ? "btn-sm" : "";
+      const buttons = [];
+
+      if (src.label !== "도보") {
+        if (normalizeAgency(item.agency) === "서귀포시") {
+          const mgtNo = getSeogwipoMgtNo(item);
+          if (mgtNo) {
+            buttons.push(`<button type="button" class="btn btn-primary ${sz}" onclick="openSeogwipoDetail('${mgtNo}')">원문</button>`);
+          } else {
+            buttons.push(`<a class="btn btn-primary ${sz}" href="${item.url}" target="_blank" rel="noopener">원문</a>`);
+          }
+        } else {
+          buttons.push(`<a class="btn btn-primary ${sz}" href="${item.url}" target="_blank" rel="noopener">원문</a>`);
         }
       }
-      return `<a class="btn btn-primary ${extraClass}" href="${item.url}" target="_blank" rel="noopener">${label}</a>`;
+
+      if (item.doboUrl) {
+        buttons.push(`<a class="btn btn-dobo ${sz}" href="${item.doboUrl}" target="_blank" rel="noopener">도보</a>`);
+      } else if (src.label === "도보") {
+        buttons.push(`<a class="btn btn-dobo ${sz}" href="${item.url}" target="_blank" rel="noopener">도보</a>`);
+      }
+
+      return `<div class="link-group">${buttons.join("")}</div>`;
     }
 
     function renderTabs(baseList) {
@@ -531,11 +616,49 @@
         const agencyName = normalizeAgency(item.agency);
         if (selectedAgency !== "ALL" && agencyName !== selectedAgency) return false;
         if (q) {
-          const text = `${agencyName} ${item.tag} ${item.noticeNo} ${item.title} ${item.dept} ${item.summary}`.toLowerCase();
+          const text = `${agencyName} ${item.tag} ${item.source || ""} ${item.noticeNo} ${item.title} ${item.dept}`.toLowerCase();
           if (!text.includes(q)) return false;
         }
         return true;
       });
+    }
+
+    function buildTableHtml(items) {
+      return `
+        <div class="table-wrap">
+          <table class="notice-table">
+            <thead>
+              <tr>
+                <th style="width:92px;">기관</th>
+                <th style="width:92px;">출처</th>
+                <th style="width:140px;">분류</th>
+                <th style="width:165px;">공고번호</th>
+                <th>제목</th>
+                <th style="width:135px;">담당부서</th>
+                <th style="width:95px;">게시일</th>
+                <th style="width:110px;">링크</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${items.map(item => {
+                const src = getSourceInfo(item);
+                return `
+                  <tr>
+                    <td><span class="badge ${badgeClass(item.agency)}">${normalizeAgency(item.agency)}</span></td>
+                    <td><span class="badge ${src.cls}">${src.label}</span></td>
+                    <td><span class="badge badge-tag">${cleanTagText(item.tag)}</span></td>
+                    <td style="color:var(--muted); font-size:0.8rem;">${item.noticeNo}</td>
+                    <td class="title-cell">${item.title}</td>
+                    <td style="color:var(--muted); font-size:0.8rem;">${item.dept}</td>
+                    <td style="color:var(--muted); white-space:nowrap;">${item.date}</td>
+                    <td>${renderActionButtons(item, true)}</td>
+                  </tr>
+                `;
+              }).join("")}
+            </tbody>
+          </table>
+        </div>
+      `;
     }
 
     function renderArchive(q) {
@@ -561,41 +684,14 @@
         return;
       }
 
-      archiveBody.innerHTML = `
-        <table class="archive-table">
-          <thead>
-            <tr>
-              <th style="width:110px;">기관</th>
-              <th style="width:140px;">구분</th>
-              <th style="width:150px;">공고번호</th>
-              <th>제목</th>
-              <th style="width:130px;">담당부서</th>
-              <th style="width:95px;">게시일</th>
-              <th style="width:80px;">링크</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${filteredArchive.map(item => `
-              <tr>
-                <td><span class="badge ${badgeClass(item.agency)}">${normalizeAgency(item.agency)}</span></td>
-                <td><span class="badge ${tagBadgeClass(item.tag)}">${item.tag}</span></td>
-                <td style="color:var(--muted); font-size:0.8rem;">${item.noticeNo}</td>
-                <td style="font-weight:600;">${item.title}</td>
-                <td style="color:var(--muted); font-size:0.8rem;">${item.dept}</td>
-                <td style="color:var(--muted); white-space:nowrap;">${item.date}</td>
-                <td>${renderLinkBtn(item, "원문", "btn-sm")}</td>
-              </tr>
-            `).join("")}
-          </tbody>
-        </table>
-      `;
+      archiveBody.innerHTML = buildTableHtml(filteredArchive).replace('class="table-wrap"', 'style="overflow-x:auto;"');
     }
 
     function render() {
       const baseList = getCurrentNotices();
       renderTabs(baseList);
 
-      const grid = document.getElementById("grid");
+      const container = document.getElementById("recentContainer");
       const q = document.getElementById("searchInput").value.trim().toLowerCase();
       const filtered = filterList(baseList, q);
 
@@ -603,27 +699,36 @@
         const msg = selectedAgency === "서귀포시"
           ? "서귀포시청: 최근 7일간 도시계획·개발 관련 신규 공고 없음"
           : "조건에 해당하는 최근 7일 공고가 없습니다.";
-        grid.innerHTML = `<div class="empty-box">${msg}</div>`;
+        container.innerHTML = `<div class="empty-box">${msg}</div>`;
+      } else if (viewMode === "list") {
+        container.innerHTML = buildTableHtml(filtered);
       } else {
-        grid.innerHTML = filtered.map(item => `
-          <article class="card">
-            <div>
-              <div class="card-top">
-                <div class="badges">
-                  <span class="badge ${badgeClass(item.agency)}">${normalizeAgency(item.agency)}</span>
-                  <span class="badge ${tagBadgeClass(item.tag)}">${item.tag}</span>
-                </div>
-                <span class="date">${item.date}</span>
-              </div>
-              <h2 class="title">${item.title}</h2>
-              <div class="meta">${item.noticeNo} · ${item.dept}</div>
-            </div>
-            <p class="summary">${item.summary}</p>
-            <div class="card-foot">
-              ${renderLinkBtn(item, "원문 보기")}
-            </div>
-          </article>
-        `).join("");
+        container.innerHTML = `
+          <div class="grid">
+            ${filtered.map(item => {
+              const src = getSourceInfo(item);
+              return `
+                <article class="card">
+                  <div>
+                    <div class="card-top">
+                      <div class="badges">
+                        <span class="badge ${badgeClass(item.agency)}">${normalizeAgency(item.agency)}</span>
+                        <span class="badge ${src.cls}">${src.label}</span>
+                        <span class="badge badge-tag">${cleanTagText(item.tag)}</span>
+                      </div>
+                      <span class="date">${item.date}</span>
+                    </div>
+                    <h2 class="title">${item.title}</h2>
+                    <div class="meta">${item.noticeNo} · ${item.dept}</div>
+                  </div>
+                  <div class="card-foot">
+                    ${renderActionButtons(item, false)}
+                  </div>
+                </article>
+              `;
+            }).join("")}
+          </div>
+        `;
       }
 
       renderArchive(q);
@@ -631,6 +736,20 @@
 
     document.getElementById("archiveToggle").addEventListener("click", () => {
       archiveOpen = !archiveOpen;
+      render();
+    });
+
+    document.getElementById("viewListBtn").addEventListener("click", () => {
+      viewMode = "list";
+      document.getElementById("viewListBtn").classList.add("active");
+      document.getElementById("viewCardBtn").classList.remove("active");
+      render();
+    });
+
+    document.getElementById("viewCardBtn").addEventListener("click", () => {
+      viewMode = "card";
+      document.getElementById("viewCardBtn").classList.add("active");
+      document.getElementById("viewListBtn").classList.remove("active");
       render();
     });
 
