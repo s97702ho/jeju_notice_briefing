@@ -291,12 +291,11 @@ def main():
         failed_agencies.add("제주도청")
         print(f"[WARN] 제주특별자치도보 조회 오류: {e}")
 
-    # 3. 제주시청 (최대 20페이지, 1페이지당 10건)
+    # 3. 제주시청 (Vercel 서울 리전 중계 경유, 최대 20페이지)
     try:
         for page in range(1, 21):
             page_html = fetch_url(
-                f"https://www.jejusi.go.kr/information/intro/notice.do?currentPageNo={page}",
-                referer="https://www.jejusi.go.kr/information/intro/notice.do",
+                f"https://jejunoticebriefing.vercel.app/api/jejusi?page={page}"
             )
             tbody_m = re.search(r"<tbody>(.*?)</tbody>", page_html, re.DOTALL | re.IGNORECASE)
             if not tbody_m:
