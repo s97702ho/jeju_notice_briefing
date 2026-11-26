@@ -1340,7 +1340,7 @@ window.JEJU_BRIEFING_DATA = {
   },
   "2026-11-26": {
     "label": "2026. 11. 26. (최근 7일: 11. 19. ~ 11. 26.)",
-    "updatedAt": "2026. 11. 26. 04:26",
+    "updatedAt": "2026. 11. 26. 14:28",
     "notices": [
       {
         "agency": "제주도청",
@@ -1390,7 +1390,7 @@ window.JEJU_BRIEFING_DATA = {
         "date": "2026. 11. 25.",
         "isoDate": "2026-11-25",
         "summary": "도시계획시설(제1-62호 및 제1-64호 어린이공원)조성사업 공사완료 공고 관련 고시·공고입니다. 세부 내용은 원문에서 확인하십시오.",
-        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=109989¤tPageNo=1",
+        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=109989¤tPageNo=2",
         "source": "고시·도보",
         "doboUrl": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2042826"
       },
@@ -1416,7 +1416,7 @@ window.JEJU_BRIEFING_DATA = {
         "date": "2026. 11. 25.",
         "isoDate": "2026-11-25",
         "summary": "2027년 제주시 지적재조사사업 실시계획 공람공고 관련 고시·공고입니다. 세부 내용은 원문에서 확인하십시오.",
-        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=110129¤tPageNo=2",
+        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=110129¤tPageNo=4",
         "source": "고시·공고"
       },
       {
@@ -1452,7 +1452,7 @@ window.JEJU_BRIEFING_DATA = {
         "date": "2026. 11. 20.",
         "isoDate": "2026-11-20",
         "summary": "초지 지역,지구등의 지형도면 고시 관련 고시·공고입니다. 세부 내용은 원문에서 확인하십시오.",
-        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=110021¤tPageNo=10",
+        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=110021¤tPageNo=11",
         "source": "고시·공고"
       },
       {
@@ -1522,18 +1522,6 @@ window.JEJU_BRIEFING_DATA = {
         "doboUrl": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2042027"
       },
       {
-        "agency": "제주시",
-        "tag": "재개발·재건축·정비",
-        "noticeNo": "제주시 공고 제2026-3867호",
-        "title": "한천 자연재해위험개선지구 정비사업(제2한천교)에 따른 차량통행 금지・제한 공고",
-        "dept": "건설과",
-        "date": "2026. 11. 16.",
-        "isoDate": "2026-11-16",
-        "summary": "한천 자연재해위험개선지구 정비사업(제2한천교)에 따른 차량통행 금지・제한 공고 관련 고시·공고입니다. 세부 내용은 원문에서 확인하십시오.",
-        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=109907¤tPageNo=20",
-        "source": "고시·공고"
-      },
-      {
         "agency": "제주도청",
         "tag": "개발사업",
         "noticeNo": "2026-3503 (공고)",
@@ -1558,30 +1546,6 @@ window.JEJU_BRIEFING_DATA = {
         "url": "https://eminwon.seogwipo.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=N&not_ancmt_mgt_no=76141",
         "source": "고시·도보",
         "doboUrl": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2041564"
-      },
-      {
-        "agency": "서귀포시",
-        "tag": "도시계획시설·실시계획",
-        "noticeNo": "서귀포시 공고 제2026-2949호",
-        "title": "2027년 지적재조사사업 실시계획 공람 공고",
-        "dept": "종합민원실",
-        "date": "2026. 11. 12.",
-        "isoDate": "2026-11-12",
-        "summary": "2027년 지적재조사사업 실시계획 공람 공고 관련 고시·공고입니다. (서귀포시청 관리번호: 76208)",
-        "url": "https://eminwon.seogwipo.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=N&not_ancmt_mgt_no=76208",
-        "source": "고시·공고"
-      },
-      {
-        "agency": "서귀포시",
-        "tag": "도시계획시설·실시계획",
-        "noticeNo": "서귀포시 공고 제2026-2940호",
-        "title": "제주평화대공원 기반시설(배수개선) 조성사업 실시계획 작성 열람공고",
-        "dept": "건설과",
-        "date": "2026. 11. 12.",
-        "isoDate": "2026-11-12",
-        "summary": "제주평화대공원 기반시설(배수개선) 조성사업 실시계획 작성 열람공고 관련 고시·공고입니다. (서귀포시청 관리번호: 76189)",
-        "url": "https://eminwon.seogwipo.go.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=N&not_ancmt_mgt_no=76189",
-        "source": "고시·공고"
       },
       {
         "agency": "제주도청",
