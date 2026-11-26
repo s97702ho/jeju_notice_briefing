@@ -1340,7 +1340,7 @@ window.JEJU_BRIEFING_DATA = {
   },
   "2026-11-26": {
     "label": "2026. 11. 26. (최근 7일: 11. 19. ~ 11. 26.)",
-    "updatedAt": "2026. 11. 26. 14:28",
+    "updatedAt": "2026. 11. 26. 19:04",
     "notices": [
       {
         "agency": "제주도청",
@@ -1390,7 +1390,7 @@ window.JEJU_BRIEFING_DATA = {
         "date": "2026. 11. 25.",
         "isoDate": "2026-11-25",
         "summary": "도시계획시설(제1-62호 및 제1-64호 어린이공원)조성사업 공사완료 공고 관련 고시·공고입니다. 세부 내용은 원문에서 확인하십시오.",
-        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=109989¤tPageNo=2",
+        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=109989¤tPageNo=3",
         "source": "고시·도보",
         "doboUrl": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2042826"
       },
@@ -1452,7 +1452,7 @@ window.JEJU_BRIEFING_DATA = {
         "date": "2026. 11. 20.",
         "isoDate": "2026-11-20",
         "summary": "초지 지역,지구등의 지형도면 고시 관련 고시·공고입니다. 세부 내용은 원문에서 확인하십시오.",
-        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=110021¤tPageNo=11",
+        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=110021¤tPageNo=12",
         "source": "고시·공고"
       },
       {
@@ -1667,20 +1667,20 @@ window.JEJU_BRIEFING_DATA = {
       {
         "agency": "제주도청",
         "tag": "도시계획시설·실시계획",
-        "noticeNo": "2026-3382 (공고)",
-        "title": "비관리청 항만개발사업 실시계획 공고(제주어선안전조업국 신축공사)",
-        "dept": "해양수산국 해운항만과",
+        "noticeNo": "제2026-3357호",
+        "title": "비관리청 항만개발사업 실시계획 공고",
+        "dept": "제주특별자치도보",
         "date": "2026. 10. 28.",
         "isoDate": "2026-10-28",
-        "summary": "비관리청 항만개발사업 실시계획 공고(제주어선안전조업국 신축공사) 관련 공고입니다. 세부 필지, 면적, 도면 등은 원문에서 확인하십시오.",
-        "url": "https://www.jeju.go.kr/news/news/law/jeju2.htm#A_68198",
-        "source": "고시·도보",
+        "summary": "제주특별자치도보에 수록된 항목입니다. 세부 내용 및 첨부 PDF는 도보 원문에서 확인하십시오.",
+        "url": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2039622",
+        "source": "도보",
         "doboUrl": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2039622"
       },
       {
         "agency": "제주도청",
         "tag": "도시계획시설·실시계획",
-        "noticeNo": "제2026-3357호",
+        "noticeNo": "제2026-3382호",
         "title": "비관리청 항만개발사업 실시계획 공고",
         "dept": "제주특별자치도보",
         "date": "2026. 10. 28.",
