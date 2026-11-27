@@ -1759,7 +1759,7 @@ window.JEJU_BRIEFING_DATA = {
   },
   "2026-11-27": {
     "label": "2026. 11. 27. (최근 7일: 11. 20. ~ 11. 27.)",
-    "updatedAt": "2026. 11. 27. 18:55",
+    "updatedAt": "2026. 11. 27. 19:10",
     "notices": [
       {
         "agency": "제주도청",
@@ -1783,7 +1783,7 @@ window.JEJU_BRIEFING_DATA = {
         "date": "2026. 11. 27.",
         "isoDate": "2026-11-27",
         "summary": "도시관리계획(도시계획시설: 항만) 결정(변경) 입안(안) 열람공고 관련 고시·공고입니다. 세부 내용은 원문에서 확인하십시오.",
-        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=110110&currentPageNo=2",
+        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=110110&currentPageNo=1",
         "source": "고시·도보",
         "doboUrl": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2043133"
       },
