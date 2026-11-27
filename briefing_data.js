@@ -1759,7 +1759,7 @@ window.JEJU_BRIEFING_DATA = {
   },
   "2026-11-27": {
     "label": "2026. 11. 27. (최근 7일: 11. 20. ~ 11. 27.)",
-    "updatedAt": "2026. 11. 27. 14:55",
+    "updatedAt": "2026. 11. 27. 16:10",
     "notices": [
       {
         "agency": "제주도청",
@@ -1874,7 +1874,7 @@ window.JEJU_BRIEFING_DATA = {
         "date": "2026. 11. 25.",
         "isoDate": "2026-11-25",
         "summary": "2027년 제주시 지적재조사사업 실시계획 공람공고 관련 고시·공고입니다. 세부 내용은 원문에서 확인하십시오.",
-        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=110129&currentPageNo=5",
+        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=110129&currentPageNo=6",
         "source": "고시·공고"
       },
       {
@@ -2047,19 +2047,6 @@ window.JEJU_BRIEFING_DATA = {
       {
         "agency": "제주도청",
         "tag": "개발사업",
-        "noticeNo": "2026-3409 (공고)",
-        "title": "제주롯데리조트(유원지) 개발사업시행승인 변경(안) 열람공고",
-        "dept": "관광교류국 관광산업과",
-        "date": "2026. 10. 30.",
-        "isoDate": "2026-10-30",
-        "summary": "제주롯데리조트(유원지) 개발사업시행승인 변경(안) 열람공고 관련 공고입니다. 세부 필지, 면적, 도면 등은 원문에서 확인하십시오.",
-        "url": "https://www.jeju.go.kr/news/news/law/jeju2.htm#A_68235",
-        "source": "고시·도보",
-        "doboUrl": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2039941"
-      },
-      {
-        "agency": "제주도청",
-        "tag": "개발사업",
         "noticeNo": "제2026-3383호",
         "title": "표선민속유원지(관광지) 개발사업시행승인 변경(안) 열람공고",
         "dept": "제주특별자치도보",
@@ -2075,6 +2062,19 @@ window.JEJU_BRIEFING_DATA = {
         "tag": "개발사업",
         "noticeNo": "제2026-3400호",
         "title": "서귀포팬텀골프앤리조트 개발사업시행승인 변경(안) 열람 공고",
+        "dept": "제주특별자치도보",
+        "date": "2026. 10. 30.",
+        "isoDate": "2026-10-30",
+        "summary": "제주특별자치도보에 수록된 항목입니다. 세부 내용 및 첨부 PDF는 도보 원문에서 확인하십시오.",
+        "url": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2039941",
+        "source": "도보",
+        "doboUrl": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2039941"
+      },
+      {
+        "agency": "제주도청",
+        "tag": "개발사업",
+        "noticeNo": "제2026-3409호",
+        "title": "제주롯데리조트(유원지) 개발사업시행승인 변경(안) 열람공고",
         "dept": "제주특별자치도보",
         "date": "2026. 10. 30.",
         "isoDate": "2026-10-30",
