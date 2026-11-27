@@ -1759,7 +1759,7 @@ window.JEJU_BRIEFING_DATA = {
   },
   "2026-11-27": {
     "label": "2026. 11. 27. (최근 7일: 11. 20. ~ 11. 27.)",
-    "updatedAt": "2026. 11. 27. 10:10",
+    "updatedAt": "2026. 11. 27. 10:55",
     "notices": [
       {
         "agency": "제주시",
@@ -1782,7 +1782,7 @@ window.JEJU_BRIEFING_DATA = {
         "date": "2026. 11. 27.",
         "isoDate": "2026-11-27",
         "summary": "도시계획시설(종합의료시설) 일부 조성사업 4차 수용재결신청서 열람 공고 관련 고시·공고입니다. 세부 내용은 원문에서 확인하십시오.",
-        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=110121&currentPageNo=1",
+        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=110121&currentPageNo=2",
         "source": "고시·공고"
       },
       {
