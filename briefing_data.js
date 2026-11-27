@@ -1759,18 +1759,18 @@ window.JEJU_BRIEFING_DATA = {
   },
   "2026-11-27": {
     "label": "2026. 11. 27. (최근 7일: 11. 20. ~ 11. 27.)",
-    "updatedAt": "2026. 11. 27. 10:55",
+    "updatedAt": "2026. 11. 27. 12:10",
     "notices": [
       {
-        "agency": "제주시",
-        "tag": "도시계획시설·실시계획",
-        "noticeNo": "제주시 공고 제2026-3963호",
-        "title": "도시관리계획(도시계획시설: 항만) 결정(변경) 입안(안) 열람공고",
-        "dept": "도시계획과",
+        "agency": "제주도청",
+        "tag": "개발사업",
+        "noticeNo": "2026-3626 (공고)",
+        "title": "올드상하이팜 농어촌관광휴양단지 개발사업시행 승인(변경) 신청에 따른 열람 공고",
+        "dept": "농축산식품국 친환경농업정책과",
         "date": "2026. 11. 27.",
         "isoDate": "2026-11-27",
-        "summary": "도시관리계획(도시계획시설: 항만) 결정(변경) 입안(안) 열람공고 관련 고시·공고입니다. 세부 내용은 원문에서 확인하십시오.",
-        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=110110&currentPageNo=1",
+        "summary": "올드상하이팜 농어촌관광휴양단지 개발사업시행 승인(변경) 신청에 따른 열람 공고 관련 공고입니다. 세부 필지, 면적, 도면 등은 원문에서 확인하십시오.",
+        "url": "https://www.jeju.go.kr/news/news/law/jeju2.htm#A_68503",
         "source": "고시·공고"
       },
       {
@@ -1782,7 +1782,19 @@ window.JEJU_BRIEFING_DATA = {
         "date": "2026. 11. 27.",
         "isoDate": "2026-11-27",
         "summary": "도시계획시설(종합의료시설) 일부 조성사업 4차 수용재결신청서 열람 공고 관련 고시·공고입니다. 세부 내용은 원문에서 확인하십시오.",
-        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=110121&currentPageNo=2",
+        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=110121&currentPageNo=1",
+        "source": "고시·공고"
+      },
+      {
+        "agency": "제주시",
+        "tag": "도시계획시설·실시계획",
+        "noticeNo": "제주시 공고 제2026-3963호",
+        "title": "도시관리계획(도시계획시설: 항만) 결정(변경) 입안(안) 열람공고",
+        "dept": "도시계획과",
+        "date": "2026. 11. 27.",
+        "isoDate": "2026-11-27",
+        "summary": "도시관리계획(도시계획시설: 항만) 결정(변경) 입안(안) 열람공고 관련 고시·공고입니다. 세부 내용은 원문에서 확인하십시오.",
+        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=110110&currentPageNo=2",
         "source": "고시·공고"
       },
       {
