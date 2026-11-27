@@ -1759,7 +1759,7 @@ window.JEJU_BRIEFING_DATA = {
   },
   "2026-11-27": {
     "label": "2026. 11. 27. (최근 7일: 11. 20. ~ 11. 27.)",
-    "updatedAt": "2026. 11. 27. 12:55",
+    "updatedAt": "2026. 11. 27. 14:10",
     "notices": [
       {
         "agency": "제주도청",
@@ -1771,7 +1771,8 @@ window.JEJU_BRIEFING_DATA = {
         "isoDate": "2026-11-27",
         "summary": "올드상하이팜 농어촌관광휴양단지 개발사업시행 승인(변경) 신청에 따른 열람 공고 관련 공고입니다. 세부 필지, 면적, 도면 등은 원문에서 확인하십시오.",
         "url": "https://www.jeju.go.kr/news/news/law/jeju2.htm#A_68503",
-        "source": "고시·공고"
+        "source": "고시·도보",
+        "doboUrl": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2043133"
       },
       {
         "agency": "제주시",
@@ -1782,8 +1783,9 @@ window.JEJU_BRIEFING_DATA = {
         "date": "2026. 11. 27.",
         "isoDate": "2026-11-27",
         "summary": "도시관리계획(도시계획시설: 항만) 결정(변경) 입안(안) 열람공고 관련 고시·공고입니다. 세부 내용은 원문에서 확인하십시오.",
-        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=110110&currentPageNo=1",
-        "source": "고시·공고"
+        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=110110&currentPageNo=2",
+        "source": "고시·도보",
+        "doboUrl": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2043133"
       },
       {
         "agency": "제주시",
@@ -1794,8 +1796,9 @@ window.JEJU_BRIEFING_DATA = {
         "date": "2026. 11. 27.",
         "isoDate": "2026-11-27",
         "summary": "도시계획시설(종합의료시설) 일부 조성사업 4차 수용재결신청서 열람 공고 관련 고시·공고입니다. 세부 내용은 원문에서 확인하십시오.",
-        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=110121&currentPageNo=2",
-        "source": "고시·공고"
+        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=110121&currentPageNo=1",
+        "source": "고시·도보",
+        "doboUrl": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2043133"
       },
       {
         "agency": "제주도청",
@@ -1845,7 +1848,7 @@ window.JEJU_BRIEFING_DATA = {
         "date": "2026. 11. 25.",
         "isoDate": "2026-11-25",
         "summary": "도시계획시설(제1-62호 및 제1-64호 어린이공원)조성사업 공사완료 공고 관련 고시·공고입니다. 세부 내용은 원문에서 확인하십시오.",
-        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=109989&currentPageNo=5",
+        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=109989&currentPageNo=8",
         "source": "고시·도보",
         "doboUrl": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2042826"
       },
@@ -1871,7 +1874,7 @@ window.JEJU_BRIEFING_DATA = {
         "date": "2026. 11. 25.",
         "isoDate": "2026-11-25",
         "summary": "2027년 제주시 지적재조사사업 실시계획 공람공고 관련 고시·공고입니다. 세부 내용은 원문에서 확인하십시오.",
-        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=110129&currentPageNo=6",
+        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=110129&currentPageNo=5",
         "source": "고시·공고"
       },
       {
@@ -1907,7 +1910,7 @@ window.JEJU_BRIEFING_DATA = {
         "date": "2026. 11. 20.",
         "isoDate": "2026-11-20",
         "summary": "초지 지역,지구등의 지형도면 고시 관련 고시·공고입니다. 세부 내용은 원문에서 확인하십시오.",
-        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=110021&currentPageNo=13",
+        "url": "https://www.jejusi.go.kr/information/intro/notice.do?mode=detail&ancmnt_pbanc_mng_no=110021&currentPageNo=14",
         "source": "고시·공고"
       },
       {
@@ -2057,27 +2060,27 @@ window.JEJU_BRIEFING_DATA = {
       {
         "agency": "제주도청",
         "tag": "개발사업",
-        "noticeNo": "2026-3400 (공고)",
-        "title": "서귀포팬텀골프앤리조트 개발사업시행승인 변경(안) 열람 공고",
-        "dept": "관광교류국 관광산업과",
+        "noticeNo": "제2026-3383호",
+        "title": "표선민속유원지(관광지) 개발사업시행승인 변경(안) 열람공고",
+        "dept": "제주특별자치도보",
         "date": "2026. 10. 30.",
         "isoDate": "2026-10-30",
-        "summary": "서귀포팬텀골프앤리조트 개발사업시행승인 변경(안) 열람 공고 관련 공고입니다. 세부 필지, 면적, 도면 등은 원문에서 확인하십시오.",
-        "url": "https://www.jeju.go.kr/news/news/law/jeju2.htm#A_68223",
-        "source": "고시·도보",
+        "summary": "제주특별자치도보에 수록된 항목입니다. 세부 내용 및 첨부 PDF는 도보 원문에서 확인하십시오.",
+        "url": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2039941",
+        "source": "도보",
         "doboUrl": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2039941"
       },
       {
         "agency": "제주도청",
         "tag": "개발사업",
-        "noticeNo": "2026-3383 (공고)",
-        "title": "표선민속유원지(관광지) 개발사업시행승인 변경(안) 열람공고",
-        "dept": "관광교류국 관광산업과",
+        "noticeNo": "제2026-3400호",
+        "title": "서귀포팬텀골프앤리조트 개발사업시행승인 변경(안) 열람 공고",
+        "dept": "제주특별자치도보",
         "date": "2026. 10. 30.",
         "isoDate": "2026-10-30",
-        "summary": "표선민속유원지(관광지) 개발사업시행승인 변경(안) 열람공고 관련 공고입니다. 세부 필지, 면적, 도면 등은 원문에서 확인하십시오.",
-        "url": "https://www.jeju.go.kr/news/news/law/jeju2.htm#A_68199",
-        "source": "고시·도보",
+        "summary": "제주특별자치도보에 수록된 항목입니다. 세부 내용 및 첨부 PDF는 도보 원문에서 확인하십시오.",
+        "url": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2039941",
+        "source": "도보",
         "doboUrl": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2039941"
       },
       {
@@ -2118,97 +2121,6 @@ window.JEJU_BRIEFING_DATA = {
         "url": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2039941",
         "source": "도보",
         "doboUrl": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2039941"
-      },
-      {
-        "agency": "제주도청",
-        "tag": "도시계획시설·실시계획",
-        "noticeNo": "제2026-3357호",
-        "title": "비관리청 항만개발사업 실시계획 공고",
-        "dept": "제주특별자치도보",
-        "date": "2026. 10. 28.",
-        "isoDate": "2026-10-28",
-        "summary": "제주특별자치도보에 수록된 항목입니다. 세부 내용 및 첨부 PDF는 도보 원문에서 확인하십시오.",
-        "url": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2039622",
-        "source": "도보",
-        "doboUrl": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2039622"
-      },
-      {
-        "agency": "제주도청",
-        "tag": "도시계획시설·실시계획",
-        "noticeNo": "제2026-3382호",
-        "title": "비관리청 항만개발사업 실시계획 공고",
-        "dept": "제주특별자치도보",
-        "date": "2026. 10. 28.",
-        "isoDate": "2026-10-28",
-        "summary": "제주특별자치도보에 수록된 항목입니다. 세부 내용 및 첨부 PDF는 도보 원문에서 확인하십시오.",
-        "url": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2039622",
-        "source": "도보",
-        "doboUrl": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2039622"
-      },
-      {
-        "agency": "제주시",
-        "tag": "지형도면·토지규제",
-        "noticeNo": "제2026-431호",
-        "title": "산짓물공원 도시관리계획(공원조성계획) 결정(경미한변경) 및 지형도면 승인 고시",
-        "dept": "제주특별자치도보",
-        "date": "2026. 10. 28.",
-        "isoDate": "2026-10-28",
-        "summary": "제주특별자치도보에 수록된 항목입니다. 세부 내용 및 첨부 PDF는 도보 원문에서 확인하십시오.",
-        "url": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2039622",
-        "source": "도보",
-        "doboUrl": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2039622"
-      },
-      {
-        "agency": "서귀포시",
-        "tag": "도시계획시설·실시계획",
-        "noticeNo": "제2026-282호",
-        "title": "도시계획시설(전기공급설비:수망태양광)사업 실시계획(변경) 인가 고시",
-        "dept": "제주특별자치도보",
-        "date": "2026. 10. 28.",
-        "isoDate": "2026-10-28",
-        "summary": "제주특별자치도보에 수록된 항목입니다. 세부 내용 및 첨부 PDF는 도보 원문에서 확인하십시오.",
-        "url": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2039622",
-        "source": "도보",
-        "doboUrl": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2039622"
-      },
-      {
-        "agency": "서귀포시",
-        "tag": "개발사업",
-        "noticeNo": "제2026-283호",
-        "title": "신산리 마을단위특화개발사업 시행계획(1차) 고시",
-        "dept": "제주특별자치도보",
-        "date": "2026. 10. 28.",
-        "isoDate": "2026-10-28",
-        "summary": "제주특별자치도보에 수록된 항목입니다. 세부 내용 및 첨부 PDF는 도보 원문에서 확인하십시오.",
-        "url": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2039622",
-        "source": "도보",
-        "doboUrl": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2039622"
-      },
-      {
-        "agency": "서귀포시",
-        "tag": "도시·개발",
-        "noticeNo": "제2026-2844호",
-        "title": "상모 도시계획도로(소로2-63호선) 확포장공사 보상계획 열람공고",
-        "dept": "제주특별자치도보",
-        "date": "2026. 10. 28.",
-        "isoDate": "2026-10-28",
-        "summary": "제주특별자치도보에 수록된 항목입니다. 세부 내용 및 첨부 PDF는 도보 원문에서 확인하십시오.",
-        "url": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2039622",
-        "source": "도보",
-        "doboUrl": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2039622"
-      },
-      {
-        "agency": "서귀포시",
-        "tag": "도시·개발",
-        "noticeNo": "제2026-2845호",
-        "title": "대정 도시계획도로(중로2-2-12호선) 확포장공사 보상계획 열람공고",
-        "dept": "제주특별자치도보",
-        "date": "2026. 10. 28.",
-        "isoDate": "2026-10-28",
-        "summary": "제주특별자치도보에 수록된 항목입니다. 세부 내용 및 첨부 PDF는 도보 원문에서 확인하십시오.",
-        "url": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2039622",
-        "source": "도보",
-        "doboUrl": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2039622"
       }
     ]
   }
