@@ -1759,7 +1759,7 @@ window.JEJU_BRIEFING_DATA = {
   },
   "2026-11-27": {
     "label": "2026. 11. 27. (최근 7일: 11. 20. ~ 11. 27.)",
-    "updatedAt": "2026. 11. 27. 16:55",
+    "updatedAt": "2026. 11. 27. 18:10",
     "notices": [
       {
         "agency": "제주도청",
@@ -2034,19 +2034,6 @@ window.JEJU_BRIEFING_DATA = {
       {
         "agency": "제주도청",
         "tag": "개발사업",
-        "noticeNo": "2026-3413 (공고)",
-        "title": "성산포(섭지지구)해양관광단지 개발사업시행승인 변경(안) 열람공고",
-        "dept": "관광교류국 관광산업과",
-        "date": "2026. 10. 30.",
-        "isoDate": "2026-10-30",
-        "summary": "성산포(섭지지구)해양관광단지 개발사업시행승인 변경(안) 열람공고 관련 공고입니다. 세부 필지, 면적, 도면 등은 원문에서 확인하십시오.",
-        "url": "https://www.jeju.go.kr/news/news/law/jeju2.htm#A_68239",
-        "source": "고시·도보",
-        "doboUrl": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2039941"
-      },
-      {
-        "agency": "제주도청",
-        "tag": "개발사업",
         "noticeNo": "제2026-3383호",
         "title": "표선민속유원지(관광지) 개발사업시행승인 변경(안) 열람공고",
         "dept": "제주특별자치도보",
@@ -2088,6 +2075,19 @@ window.JEJU_BRIEFING_DATA = {
         "tag": "도시계획시설·실시계획",
         "noticeNo": "제2026-3410호",
         "title": "도시계획시설(공원) 조성사업 실시계획작성(변경) 열람공고",
+        "dept": "제주특별자치도보",
+        "date": "2026. 10. 30.",
+        "isoDate": "2026-10-30",
+        "summary": "제주특별자치도보에 수록된 항목입니다. 세부 내용 및 첨부 PDF는 도보 원문에서 확인하십시오.",
+        "url": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2039941",
+        "source": "도보",
+        "doboUrl": "https://www.jeju.go.kr/news/online/list/2014.htm?act=view&seq=2039941"
+      },
+      {
+        "agency": "제주도청",
+        "tag": "개발사업",
+        "noticeNo": "제2026-3413호",
+        "title": "성산포(섭지지구)해양관광단지 개발사업시행승인 변경(안) 열람공고",
         "dept": "제주특별자치도보",
         "date": "2026. 10. 30.",
         "isoDate": "2026-10-30",
