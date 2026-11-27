@@ -317,7 +317,7 @@ def main():
                     page_has_valid = True
                     title = clean_text(title_m.group(2))
                     if is_target_notice(title):
-                        href = clean_text(title_m.group(1))
+                        href = title_m.group(1).replace("&amp;", "&").strip()
                         detail_url = urllib.parse.urljoin("https://www.jejusi.go.kr/information/intro/notice.do", href)
                         add_or_merge({
                             "agency": "제주시",
